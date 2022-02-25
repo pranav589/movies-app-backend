@@ -24,14 +24,6 @@ mongoose
   .then(() => console.log("connected to db"))
   .catch((e) => console.log(e));
 
-// Below MongoDB and  Above Listen Sever
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("../build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../", "build", "index.html"));
-  });
-}
-
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`server running on port`, PORT);
